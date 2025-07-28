@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+git add README.md
+git commit -m "Add project documentation in README"
+git push origin main
+# React Portfolio Website Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Development](#development)
+- [Testing](#testing)
+- [Production Build](#production-build)
+- [Deployment (Vercel)](#deployment-vercel)
+- [Challenges Faced](#challenges-faced)
+- [Live Site & Repository](#live-site--repository)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Overview
+This is a **React-based portfolio website** to showcase projects, skills, resume, and contact information. It's built using modern React features such as routing, lazy loading, and modular components. The app is styled using Tailwind CSS.
 
-### `npm start`
+## Project Structure
+```
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Resume.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx
+│   └── index.js
+├── package.json
+└── tailwind.config.js
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- 📄 About Me section
+- 💼 Projects with details and tech used
+- 🛠️ Skills listed clearly
+- 📄 Resume section (PDF or text)
+- 📬 Contact form (frontend only)
+- 🔄 Lazy loading of components
+- 📱 Responsive across all devices
+- ⚙️ Optimized production build
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js v16+
+- Git
 
-### `npm run build`
+### Installation
+```bash
+git clone https://github.com/Adhi-2003/Portfolio.git
+cd Portfolio
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Start Development Server
+```bash
+npm start
+```
+Access the app at: `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
+- Components are lazy-loaded using `React.lazy()` and `Suspense`.
+- Routing handled by `react-router-dom`
+- Tailwind CSS is used for responsive styling.
 
-### `npm run eject`
+**App.jsx**:
+Handles routes and wraps lazy-loaded components:
+```jsx
+<Route path="/projects" element={<Projects />} />
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Navbar**:
+Includes links to About, Projects, Skills, Resume, and Contact sections.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Testing
+Testing is set up using **Jest** and **React Testing Library**.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Example Command:
+```bash
+npm test
+```
 
-## Learn More
+Tests written for:
+- Project gallery display
+- Contact form submission validation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Coverage goal: **>80%**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Production Build
+To optimize the app:
+```bash
+npm run build
+```
+This generates a `build/` folder with optimized assets:
+- Minified JS and CSS
+- Pre-rendered HTML
+- Lazy-loaded chunks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Deployment (Vercel)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Steps:
+1. Push project to GitHub
+2. Go to [vercel.com](https://vercel.com/)
+3. Click **"Add New Project"** > Import your GitHub repo
+4. Framework preset: **Create React App**
+5. Build command: `npm run build`
+6. Output directory: `build`
+7. Click **Deploy**
 
-### Making a Progressive Web App
+#### Custom Domain
+1. Go to Project > Settings > Domains
+2. Add a domain and configure DNS
+3. Enable SSL certificate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Challenges Faced
+- `react-scripts not found` error in Vercel due to missing `package-lock.json`
+- Solved by deleting `node_modules`, regenerating lock file, and committing it
+- Ensured Tailwind CSS was responsive by adding breakpoints
+- Contact form was not functional due to no backend — noted as a future improvement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Live Site & Repository
+- 🔗 **Live Website**: https://adhi-portfolio.vercel.app
+- 📦 **GitHub Repository**: https://github.com/Adhi-2003/Portfolio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Made by Adhiyamaan N S
